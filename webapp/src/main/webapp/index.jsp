@@ -17,7 +17,7 @@
             font-family: 'Arial', sans-serif;
         }
         .aws-heading {
-            font-size: 7rem;
+            font-size: 8rem;
             font-weight: bold;
             color: #252f3e; 
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -48,7 +48,7 @@
     </style>
 </head>
 <body>
-    <h1 class="aws-heading">AWS</h1>
+    <h1 class="aws-heading">Cloud Provider AWS</h1>
     <img src="./aws.jpg" alt="AWS Image" class="aws-image">
 </body>
 </form>
