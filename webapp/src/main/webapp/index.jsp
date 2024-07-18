@@ -32,7 +32,8 @@
   </div>
 
    <h1> Thank You </h1>
-   <h1> Thank Duc  </h1>
+   <h1> Thank Hung  </h1>
+   <h1> Thank Hoa  </h1>
    <br>
    <h1> Happy Learning. See You Again. </h1>
    <h1> Happy Learning. See You Again. </h1>
