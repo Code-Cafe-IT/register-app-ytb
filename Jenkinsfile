@@ -11,7 +11,9 @@ pipeline{
             }
         }
         stage("Check from SCM"){
-            git branch: 'main', credentialsId: 'github', url: 'https://github.com/Code-Cafe-IT/register-app-ytb.git'
+            steps{
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/Code-Cafe-IT/register-app-ytb.git'
+            }
         }
         stage("Build Application"){
             steps{
@@ -22,7 +24,7 @@ pipeline{
             steps{
                 sh "mvn test"
             }
-            
+
         }
     }
 }
