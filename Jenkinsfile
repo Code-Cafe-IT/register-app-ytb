@@ -7,6 +7,7 @@ pipeline{
     stages{
         stage("Cleanup Workspace"){
             steps{
+                // dọn dẹp workspace trước khi bắt đầu. Nó xóa bỏ toàn bộ các file và thư mục từ các build trước đó. 
                 cleanWs()
             }
         }
@@ -17,14 +18,24 @@ pipeline{
         }
         stage("Build Application"){
             steps{
+                // Maven sẽ xóa bỏ các file từ build cũ (clean) và tạo ra một gói (package) mới
                 sh "mvn clean package"
             }
         }
         stage("Test Application"){
             steps{
+                // Maven sẽ chạy các test cases được định nghĩa trong mã nguồn
                 sh "mvn test"
             }
-
+        }
+        stage("Sonarqube Analysis"){
+            steps{
+                script{
+                    withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') {
+                        sh "mvn sonar:sonar"
+                    }
+                }
+            }
         }
     }
 }
