@@ -5,7 +5,7 @@ pipeline{
         maven 'Maven3'
     }
     environment{
-        APP_NAME = "register-app-ci"
+        APP_NAME = "register-app-ci" //Đặt tên cho image
         RELEASE = "1.0.0"
         DOCKER_USER = "minhduccloud"
         DOCKER_PASS = 'dockerhub'
@@ -68,5 +68,20 @@ pipeline{
                 }
             }
         }
+        stage("Trivy Scan") {
+           steps {
+               script {
+	            sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image minhduccloud/register-app-ci:latest --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table')
+               }
+           }
+       }
+        stage ('Cleanup Artifacts') {
+           steps {
+               script {
+                    sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+                    sh "docker rmi ${IMAGE_NAME}:latest"
+               }
+          }
+       }
     }
 }
