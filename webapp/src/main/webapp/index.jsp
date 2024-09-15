@@ -63,7 +63,7 @@
   <body>
       <div class="overlay"></div>
       <div class="content">
-          <h1 class="aws-heading">CICD EKS CLUSTER CLOUD AWS</h1>
+          <h1 class="aws-heading">CICD EKS CLUSTER CLOUD AWSS</h1>
           <img src="./aws.jpg" alt="AWS Image" class="aws-image">
       </div>
   </body>
